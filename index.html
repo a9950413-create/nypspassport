@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>鳥嶼國小英語學習護照</title>
+    <title>鳥嶼國小英語學習護照 - 智慧評測版</title>
     
     <!-- 載入 Tailwind CSS (樣式) -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -32,16 +32,8 @@
         .animate-bounce-slow {
             animation: bounce-slow 2s infinite;
         }
-        /* 隱藏滾動條但保留功能 */
-        .no-scrollbar::-webkit-scrollbar {
-            display: none;
-        }
-        .no-scrollbar {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-        }
         body {
-            touch-action: manipulation; /* 優化觸控體驗 */
+            touch-action: manipulation;
         }
     </style>
 </head>
@@ -51,7 +43,7 @@
     <script type="text/babel">
         const { useState, useEffect, useRef } = React;
 
-        // --- 圖示組件 (SVG Paths) ---
+        // --- 圖示組件 ---
         const Icons = {
             Volume2: (props) => <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>,
             ArrowLeft: (props) => <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>,
@@ -66,7 +58,8 @@
             Keyboard: (props) => <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="16" x="2" y="4" rx="2" ry="2"/><path d="M6 8h.001"/><path d="M10 8h.001"/><path d="M14 8h.001"/><path d="M18 8h.001"/><path d="M6 12h.001"/><path d="M10 12h.001"/><path d="M14 12h.001"/><path d="M18 12h.001"/><path d="M7 16h10"/></svg>,
             Check: (props) => <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5"/></svg>,
             X: (props) => <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>,
-            RotateCcw: (props) => <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+            RotateCcw: (props) => <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>,
+            Info: (props) => <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" x2="12" y1="16" y2="12"/><line x1="12" x2="12.01" y1="8" y2="8"/></svg>
         };
 
         // --- 資料庫內容 ---
@@ -371,7 +364,6 @@
         };
 
         // --- 輔助函數 ---
-
         const getIcon = (text) => {
           const lower = text.toLowerCase();
           
@@ -455,7 +447,7 @@
           if (lower.includes('rice')) return '🍚';
           if (lower.includes('noodle')) return '🍜';
           if (lower.includes('bread')) return '🍞';
-          if (lower.includes('beef') || lower.includes('steak')) return '🥩';
+          if (lower.includes('beef')) return '🥩';
           if (lower.includes('pork')) return '🥓';
           if (lower.includes('dumpling')) return '🥟';
           if (lower.includes('fries')) return '🍟';
@@ -624,6 +616,41 @@
           </div>
         );
 
+        // 新增：糾錯顯示組件
+        const CorrectionDisplay = ({ target, spoken }) => {
+            const targetWords = target.toLowerCase().replace(/[.,?!]/g, '').split(' ');
+            const spokenWords = spoken.toLowerCase().replace(/[.,?!]/g, '').split(' ');
+            
+            return (
+                <div className="mt-2 bg-red-50 p-3 rounded-lg border border-red-100 text-sm">
+                    <div className="flex items-start gap-2 mb-2">
+                        <Icons.Info className="text-red-500 shrink-0 mt-0.5" size={16} />
+                        <div>
+                            <p className="font-bold text-red-600">聽起來不太像，再試一次？</p>
+                            <p className="text-gray-600 mt-1">您唸的是: "{spoken}"</p>
+                        </div>
+                    </div>
+                    
+                    {/* 簡易差異比較 */}
+                    <div className="flex flex-wrap gap-1 mt-2">
+                        {targetWords.map((word, idx) => {
+                            // 簡單比對：如果這個字在 spokenWords 裡完全找不到，標示紅色
+                            const isMissing = !spokenWords.includes(word);
+                            return (
+                                <span 
+                                    key={idx} 
+                                    className={`px-1 rounded ${isMissing ? 'bg-red-200 text-red-800 font-bold' : 'text-green-700'}`}
+                                >
+                                    {word}
+                                </span>
+                            );
+                        })}
+                    </div>
+                    <p className="text-xs text-gray-500 mt-1 text-right">紅色標示為可能漏讀或發音不清的單字</p>
+                </div>
+            );
+        };
+
         const SpeechEvaluator = ({ targetText }) => {
           const [isListening, setIsListening] = useState(false);
           const [result, setResult] = useState('idle');
@@ -692,28 +719,34 @@
           };
 
           return (
-            <div className="mt-3 border-t pt-2 flex items-center justify-between">
-              <div className="flex-1">
-                {result === 'listening' && <span className="text-sky-500 text-sm animate-pulse">正在聆聽...</span>}
-                {result === 'success' && <span className="text-green-600 font-bold flex items-center gap-1"><Icons.Star size={14} fill="currentColor"/> Perfect!</span>}
-                {result === 'good' && <span className="text-orange-500 font-bold">Good! ({transcript})</span>}
-                {result === 'fail' && <span className="text-gray-500 text-xs">聽起來像: "{transcript}"</span>}
-                {result === 'error' && <span className="text-red-400 text-xs">無法辨識</span>}
-                {result === 'idle' && <span className="text-gray-400 text-xs">點擊麥克風練習</span>}
+            <div className="mt-3 border-t pt-2">
+              <div className="flex items-center justify-between mb-2">
+                <div className="flex-1">
+                    {result === 'listening' && <span className="text-sky-500 text-sm animate-pulse">正在聆聽...</span>}
+                    {result === 'success' && <span className="text-green-600 font-bold flex items-center gap-1"><Icons.Star size={14} fill="currentColor"/> Perfect!</span>}
+                    {result === 'good' && <span className="text-orange-500 font-bold">Good! ({transcript})</span>}
+                    {result === 'error' && <span className="text-red-400 text-xs">無法辨識</span>}
+                    {result === 'idle' && <span className="text-gray-400 text-xs">點擊麥克風練習</span>}
+                </div>
+                
+                <button 
+                    onClick={isListening ? stopListening : startListening}
+                    className={`p-3 rounded-full transition-all shadow-sm ${
+                    isListening 
+                        ? 'bg-red-500 text-white animate-pulse' 
+                        : result === 'success' 
+                            ? 'bg-green-100 text-green-600 hover:bg-green-200'
+                            : 'bg-gray-100 text-gray-500 hover:bg-sky-100 hover:text-sky-500'
+                    }`}
+                >
+                    {isListening ? <Icons.MicOff size={20} /> : <Icons.Mic size={20} />}
+                </button>
               </div>
-              
-              <button 
-                onClick={isListening ? stopListening : startListening}
-                className={`p-3 rounded-full transition-all shadow-sm ${
-                  isListening 
-                    ? 'bg-red-500 text-white animate-pulse' 
-                    : result === 'success' 
-                        ? 'bg-green-100 text-green-600 hover:bg-green-200'
-                        : 'bg-gray-100 text-gray-500 hover:bg-sky-100 hover:text-sky-500'
-                }`}
-              >
-                {isListening ? <Icons.MicOff size={20} /> : <Icons.Mic size={20} />}
-              </button>
+
+              {/* 糾錯顯示區塊 (只有在 fail 時顯示) */}
+              {result === 'fail' && (
+                  <CorrectionDisplay target={targetText} spoken={transcript} />
+              )}
             </div>
           );
         };
