@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>鳥嶼國小英語學習護照 - 完整圖示版</title>
+    <title>鳥嶼國小英語學習護照 - 智慧評測修正版</title>
     
     <!-- 載入 Tailwind CSS (樣式) -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -367,7 +367,6 @@
         const getIcon = (text) => {
           const lower = text.toLowerCase();
           
-          // Menu Icons
           if (lower.includes('stationery')) return '📏';
           if (lower.includes('number')) return '🔢';
           if (lower.includes('color')) return '🎨';
@@ -394,20 +393,11 @@
           if (lower.includes('body')) return '💪';
           if (lower.includes('sick')) return '🤒';
 
-          // General & Pronouns
           if (lower === 'i') return '🙋';
           if (lower === 'you') return '👉';
           if (lower.includes('name')) return '📛';
           if (lower.includes('fine')) return '👌';
-          if (lower.includes('sorry')) return '🙇';
-          if (lower.includes('thank')) return '🙏';
-          if (lower.includes('excuse')) return '🙋';
-          if (lower.includes('good job') || lower.includes('great') || lower.includes('bravo')) return '👍';
-          if (lower.includes('cool')) return '😎';
-          if (lower.includes('meet')) return '🤝';
-          if (lower.includes('welcome')) return '😊';
           
-          // Numbers (Enhanced)
           if (lower.match(/\b(one|1)\b/)) return '1️⃣';
           if (lower.match(/\b(two|2)\b/)) return '2️⃣';
           if (lower.match(/\b(three|3)\b/)) return '3️⃣';
@@ -437,7 +427,6 @@
           if (lower.includes('ninety') || lower.includes('90')) return '9️⃣0️⃣';
           if (lower.includes('hundred')) return '💯';
           
-          // Stationery
           if (lower.includes('pencil')) return '✏️';
           if (lower.includes('pen')) return '🖊️';
           if (lower.includes('ruler')) return '📏';
@@ -447,7 +436,6 @@
           if (lower.includes('marker')) return '🖍️';
           if (lower.includes('glue')) return '🧴';
 
-          // Colors
           if (lower.includes('red')) return '🔴';
           if (lower.includes('blue')) return '🔵';
           if (lower.includes('green')) return '🟢';
@@ -456,7 +444,6 @@
           if (lower.includes('white')) return '⚪';
           if (lower.includes('pink')) return '🌸';
 
-          // Food & Drinks
           if (lower.includes('apple')) return '🍎';
           if (lower.includes('banana')) return '🍌';
           if (lower.includes('egg')) return '🥚';
@@ -484,7 +471,6 @@
           if (lower.includes('fries')) return '🍟';
           if (lower.includes('chocolate')) return '🍫';
 
-          // Fruits & Veggies
           if (lower.includes('orange')) return '🍊';
           if (lower.includes('grape')) return '🍇';
           if (lower.includes('watermelon')) return '🍉';
@@ -498,7 +484,6 @@
           if (lower.includes('mushroom')) return '🍄';
           if (lower.includes('pumpkin')) return '🎃';
 
-          // Animals
           if (lower.includes('dog')) return '🐶';
           if (lower.includes('cat')) return '🐱';
           if (lower.includes('bird')) return '🐦';
@@ -514,7 +499,6 @@
           if (lower.includes('turtle')) return '🐢';
           if (lower.includes('panda')) return '🐼';
 
-          // People & Jobs
           if (lower.includes('father') || lower.includes('dad')) return '👨';
           if (lower.includes('mother') || lower.includes('mom')) return '👩';
           if (lower.includes('brother')) return '👦';
@@ -529,7 +513,6 @@
           if (lower.includes('waiter') || lower.includes('waitress')) return '💁';
           if (lower.includes('fisherman')) return '🎣';
           
-          // Body & Health
           if (lower.includes('eye')) return '👁️';
           if (lower.includes('ear')) return '👂';
           if (lower.includes('nose') || lower.includes('runny')) return '👃';
@@ -548,7 +531,6 @@
           if (lower.includes('toe')) return '🦶';
           if (lower.includes('leg')) return '🦵';
 
-          // Weather
           if (lower.includes('sunny')) return '☀️';
           if (lower.includes('cloud')) return '☁️';
           if (lower.includes('rain')) return '🌧️';
@@ -558,7 +540,6 @@
           if (lower.includes('hot')) return '🥵';
           if (lower.includes('warm')) return '🌡️';
 
-          // Places
           if (lower.includes('school')) return '🏫';
           if (lower.includes('park')) return '🏞️';
           if (lower.includes('home')) return '🏠';
@@ -583,7 +564,6 @@
           if (lower.includes('station')) return '🚉';
           if (lower.includes('stop')) return '🚏';
 
-          // Transportation
           if (lower.includes('scooter')) return '🛵';
           if (lower.includes('car')) return '🚗';
           if (lower.includes('bus')) return '🚌';
@@ -595,7 +575,6 @@
           if (lower.includes('taxi')) return '🚕';
           if (lower.includes('walk') || lower.includes('foot')) return '🚶';
 
-          // Actions / Hobbies
           if (lower.includes('sing')) return '🎤';
           if (lower.includes('dance')) return '💃';
           if (lower.includes('swim')) return '🏊';
@@ -621,7 +600,6 @@
           if (lower.includes('shower')) return '🚿';
           if (lower.includes('get up')) return '🌅';
 
-          // Clothing
           if (lower.includes('shirt')) return '👕';
           if (lower.includes('dress')) return '👗';
           if (lower.includes('pants')) return '👖';
@@ -640,7 +618,6 @@
           if (lower.includes('money')) return '💰';
           if (lower.includes('dollar')) return '💵';
 
-          // Countries
           if (lower.includes('taiwan')) return '🇹🇼';
           if (lower.includes('usa')) return '🇺🇸';
           if (lower.includes('uk')) return '🇬🇧';
@@ -650,8 +627,7 @@
           if (lower.includes('egypt')) return '🇪🇬';
           if (lower.includes('canada')) return '🇨🇦';
 
-          // Subjects
-          if (lower.includes('chinese')) return '🇹🇼'; // Or book
+          if (lower.includes('chinese')) return '🇹🇼'; 
           if (lower.includes('english')) return '🅰️';
           if (lower.includes('math')) return '➗';
           if (lower.includes('music')) return '🎵';
@@ -661,16 +637,14 @@
           if (lower.includes('social')) return '🌏';
           if (lower.includes('computer')) return '💻';
 
-          // Time & Week
           if (lower.includes('day') || lower.includes('week') || lower.includes('mon') || lower.includes('tue') || lower.includes('wed') || lower.includes('thu') || lower.includes('fri') || lower.includes('sat') || lower.includes('sun')) return '📅';
           if (lower.includes('time') || lower.includes('clock') || lower.includes('minute')) return '⏰';
 
-          // Position/Furniture
           if (lower.includes('chair')) return '🪑';
           if (lower.includes('desk') || lower.includes('table')) return '🪑';
           if (lower.includes('drawer')) return '🗄️';
           if (lower.includes('box')) return '📦';
-          if (lower.includes('on')) return '⬇️'; // on top
+          if (lower.includes('on')) return '⬇️';
           if (lower.includes('in')) return '📦';
           if (lower.includes('under')) return '⬇️';
 
@@ -736,7 +710,6 @@
                     {/* 簡易差異比較 */}
                     <div className="flex flex-wrap gap-1 mt-2">
                         {targetWords.map((word, idx) => {
-                            // 簡單比對：如果這個字在 spokenWords 裡完全找不到，標示紅色
                             const isMissing = !spokenWords.includes(word);
                             return (
                                 <span 
@@ -757,8 +730,45 @@
           const [isListening, setIsListening] = useState(false);
           const [result, setResult] = useState('idle');
           const [transcript, setTranscript] = useState('');
-          
+          const timeoutRef = useRef(null); // New: Timer ref
           const recognitionRef = useRef(null);
+
+          // Levenshtein Distance for fuzzy matching
+          const getLevenshteinDistance = (a, b) => {
+            if (a.length === 0) return b.length;
+            if (b.length === 0) return a.length;
+            const matrix = [];
+            for (let i = 0; i <= b.length; i++) { matrix[i] = [i]; }
+            for (let j = 0; j <= a.length; j++) { matrix[0][j] = j; }
+            for (let i = 1; i <= b.length; i++) {
+                for (let j = 1; j <= a.length; j++) {
+                    if (b.charAt(i - 1) === a.charAt(j - 1)) {
+                        matrix[i][j] = matrix[i - 1][j - 1];
+                    } else {
+                        matrix[i][j] = Math.min(matrix[i - 1][j - 1] + 1, Math.min(matrix[i][j - 1] + 1, matrix[i - 1][j] + 1));
+                    }
+                }
+            }
+            return matrix[b.length][a.length];
+          };
+
+          // Number word mapping
+          const numberMap = {
+            "1": "one", "2": "two", "3": "three", "4": "four", "5": "five",
+            "6": "six", "7": "seven", "8": "eight", "9": "nine", "10": "ten",
+            "11": "eleven", "12": "twelve", "13": "thirteen", "14": "fourteen", "15": "fifteen",
+            "16": "sixteen", "17": "seventeen", "18": "eighteen", "19": "nineteen", "20": "twenty",
+            "30": "thirty", "40": "forty", "50": "fifty", "60": "sixty", "70": "seventy", "80": "eighty", "90": "ninety"
+          };
+
+          const normalizeText = (text) => {
+             let str = text.toLowerCase().replace(/[.,?!]/g, '').trim();
+             // Replace simple numbers with words
+             str = str.split(' ').map(word => numberMap[word] || word).join(' ');
+             // Expand common contractions
+             str = str.replace("it's", "it is").replace("i'm", "i am").replace("what's", "what is");
+             return str;
+          }
 
           useEffect(() => {
             const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
@@ -769,6 +779,7 @@
               recognitionRef.current.interimResults = false;
 
               recognitionRef.current.onresult = (event) => {
+                if (timeoutRef.current) clearTimeout(timeoutRef.current); // Clear timeout on success
                 const spokenText = event.results[0][0].transcript;
                 setTranscript(spokenText);
                 evaluate(spokenText, targetText);
@@ -776,14 +787,21 @@
               };
 
               recognitionRef.current.onerror = (event) => {
+                if (timeoutRef.current) clearTimeout(timeoutRef.current);
                 console.error("Speech error", event.error);
                 setResult('error');
                 setIsListening(false);
               };
 
               recognitionRef.current.onend = () => {
-                setIsListening(false);
+                // Wait a bit, if result hasn't processed, it might be silence
+                // But usually we handle state in onresult/onerror.
+                // If it ends without result or error, listening stops.
+                if (isListening) setIsListening(false);
               };
+            }
+            return () => {
+                if (timeoutRef.current) clearTimeout(timeoutRef.current);
             }
           }, [targetText]);
 
@@ -797,6 +815,14 @@
             setTranscript('...');
             setIsListening(true);
             recognitionRef.current.start();
+
+            // FIX 1: Auto-stop timeout
+            if (timeoutRef.current) clearTimeout(timeoutRef.current);
+            timeoutRef.current = setTimeout(() => {
+                if (recognitionRef.current) recognitionRef.current.stop();
+                setResult('error'); // Treat timeout as no speech detected or error
+                setIsListening(false);
+            }, 5000); // 5 seconds timeout
           };
 
           const stopListening = (e) => {
@@ -804,19 +830,28 @@
             if (recognitionRef.current) {
               recognitionRef.current.stop();
             }
+            if (timeoutRef.current) clearTimeout(timeoutRef.current);
           };
 
           const evaluate = (spoken, target) => {
-            const normalize = (str) => str.toLowerCase().replace(/[.,?!]/g, '').trim();
-            const s = normalize(spoken);
-            const t = normalize(target);
+            const s = normalizeText(spoken);
+            const t = normalizeText(target);
 
-            if (s === t) {
+            // FIX 2: Fuzzy Logic
+            if (s === t || t.includes(s) || s.includes(t)) {
               setResult('success');
-            } else if (t.includes(s) || s.includes(t)) {
-              setResult('good');
+              return;
+            }
+
+            const distance = getLevenshteinDistance(s, t);
+            const maxLength = Math.max(s.length, t.length);
+            const similarity = 1 - (distance / maxLength);
+
+            // 80% similarity threshold
+            if (similarity > 0.8) {
+                setResult('success');
             } else {
-              setResult('fail');
+                setResult('fail');
             }
           };
 
@@ -827,7 +862,7 @@
                     {result === 'listening' && <span className="text-sky-500 text-sm animate-pulse">正在聆聽...</span>}
                     {result === 'success' && <span className="text-green-600 font-bold flex items-center gap-1"><Icons.Star size={14} fill="currentColor"/> Perfect!</span>}
                     {result === 'good' && <span className="text-orange-500 font-bold">Good! ({transcript})</span>}
-                    {result === 'error' && <span className="text-red-400 text-xs">無法辨識</span>}
+                    {result === 'error' && <span className="text-red-400 text-xs">沒聽到聲音，請再試一次</span>}
                     {result === 'idle' && <span className="text-gray-400 text-xs">點擊麥克風練習</span>}
                 </div>
                 
