@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>鳥嶼國小英語學習護照 - 智慧評測修正版</title>
+    <title>鳥嶼國小英語學習護照 - 無提示配對修正版</title>
     
     <!-- 載入 Tailwind CSS (樣式) -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -367,6 +367,7 @@
         const getIcon = (text) => {
           const lower = text.toLowerCase();
           
+          // Menu Icons
           if (lower.includes('stationery')) return '📏';
           if (lower.includes('number')) return '🔢';
           if (lower.includes('color')) return '🎨';
@@ -393,11 +394,20 @@
           if (lower.includes('body')) return '💪';
           if (lower.includes('sick')) return '🤒';
 
+          // General & Pronouns
           if (lower === 'i') return '🙋';
           if (lower === 'you') return '👉';
           if (lower.includes('name')) return '📛';
           if (lower.includes('fine')) return '👌';
+          if (lower.includes('sorry')) return '🙇';
+          if (lower.includes('thank')) return '🙏';
+          if (lower.includes('excuse')) return '🙋';
+          if (lower.includes('good job') || lower.includes('great') || lower.includes('bravo')) return '👍';
+          if (lower.includes('cool')) return '😎';
+          if (lower.includes('meet')) return '🤝';
+          if (lower.includes('welcome')) return '😊';
           
+          // Numbers (Enhanced)
           if (lower.match(/\b(one|1)\b/)) return '1️⃣';
           if (lower.match(/\b(two|2)\b/)) return '2️⃣';
           if (lower.match(/\b(three|3)\b/)) return '3️⃣';
@@ -427,6 +437,7 @@
           if (lower.includes('ninety') || lower.includes('90')) return '9️⃣0️⃣';
           if (lower.includes('hundred')) return '💯';
           
+          // Stationery
           if (lower.includes('pencil')) return '✏️';
           if (lower.includes('pen')) return '🖊️';
           if (lower.includes('ruler')) return '📏';
@@ -436,6 +447,7 @@
           if (lower.includes('marker')) return '🖍️';
           if (lower.includes('glue')) return '🧴';
 
+          // Colors
           if (lower.includes('red')) return '🔴';
           if (lower.includes('blue')) return '🔵';
           if (lower.includes('green')) return '🟢';
@@ -444,6 +456,7 @@
           if (lower.includes('white')) return '⚪';
           if (lower.includes('pink')) return '🌸';
 
+          // Food & Drinks
           if (lower.includes('apple')) return '🍎';
           if (lower.includes('banana')) return '🍌';
           if (lower.includes('egg')) return '🥚';
@@ -471,6 +484,7 @@
           if (lower.includes('fries')) return '🍟';
           if (lower.includes('chocolate')) return '🍫';
 
+          // Fruits & Veggies
           if (lower.includes('orange')) return '🍊';
           if (lower.includes('grape')) return '🍇';
           if (lower.includes('watermelon')) return '🍉';
@@ -484,6 +498,7 @@
           if (lower.includes('mushroom')) return '🍄';
           if (lower.includes('pumpkin')) return '🎃';
 
+          // Animals
           if (lower.includes('dog')) return '🐶';
           if (lower.includes('cat')) return '🐱';
           if (lower.includes('bird')) return '🐦';
@@ -499,6 +514,7 @@
           if (lower.includes('turtle')) return '🐢';
           if (lower.includes('panda')) return '🐼';
 
+          // People & Jobs
           if (lower.includes('father') || lower.includes('dad')) return '👨';
           if (lower.includes('mother') || lower.includes('mom')) return '👩';
           if (lower.includes('brother')) return '👦';
@@ -513,6 +529,7 @@
           if (lower.includes('waiter') || lower.includes('waitress')) return '💁';
           if (lower.includes('fisherman')) return '🎣';
           
+          // Body & Health
           if (lower.includes('eye')) return '👁️';
           if (lower.includes('ear')) return '👂';
           if (lower.includes('nose') || lower.includes('runny')) return '👃';
@@ -531,6 +548,7 @@
           if (lower.includes('toe')) return '🦶';
           if (lower.includes('leg')) return '🦵';
 
+          // Weather
           if (lower.includes('sunny')) return '☀️';
           if (lower.includes('cloud')) return '☁️';
           if (lower.includes('rain')) return '🌧️';
@@ -540,6 +558,7 @@
           if (lower.includes('hot')) return '🥵';
           if (lower.includes('warm')) return '🌡️';
 
+          // Places
           if (lower.includes('school')) return '🏫';
           if (lower.includes('park')) return '🏞️';
           if (lower.includes('home')) return '🏠';
@@ -564,6 +583,7 @@
           if (lower.includes('station')) return '🚉';
           if (lower.includes('stop')) return '🚏';
 
+          // Transportation
           if (lower.includes('scooter')) return '🛵';
           if (lower.includes('car')) return '🚗';
           if (lower.includes('bus')) return '🚌';
@@ -575,6 +595,7 @@
           if (lower.includes('taxi')) return '🚕';
           if (lower.includes('walk') || lower.includes('foot')) return '🚶';
 
+          // Actions / Hobbies
           if (lower.includes('sing')) return '🎤';
           if (lower.includes('dance')) return '💃';
           if (lower.includes('swim')) return '🏊';
@@ -600,6 +621,7 @@
           if (lower.includes('shower')) return '🚿';
           if (lower.includes('get up')) return '🌅';
 
+          // Clothing
           if (lower.includes('shirt')) return '👕';
           if (lower.includes('dress')) return '👗';
           if (lower.includes('pants')) return '👖';
@@ -618,6 +640,7 @@
           if (lower.includes('money')) return '💰';
           if (lower.includes('dollar')) return '💵';
 
+          // Countries
           if (lower.includes('taiwan')) return '🇹🇼';
           if (lower.includes('usa')) return '🇺🇸';
           if (lower.includes('uk')) return '🇬🇧';
@@ -627,7 +650,8 @@
           if (lower.includes('egypt')) return '🇪🇬';
           if (lower.includes('canada')) return '🇨🇦';
 
-          if (lower.includes('chinese')) return '🇹🇼'; 
+          // Subjects
+          if (lower.includes('chinese')) return '🇹🇼'; // Or book
           if (lower.includes('english')) return '🅰️';
           if (lower.includes('math')) return '➗';
           if (lower.includes('music')) return '🎵';
@@ -637,14 +661,16 @@
           if (lower.includes('social')) return '🌏';
           if (lower.includes('computer')) return '💻';
 
+          // Time & Week
           if (lower.includes('day') || lower.includes('week') || lower.includes('mon') || lower.includes('tue') || lower.includes('wed') || lower.includes('thu') || lower.includes('fri') || lower.includes('sat') || lower.includes('sun')) return '📅';
           if (lower.includes('time') || lower.includes('clock') || lower.includes('minute')) return '⏰';
 
+          // Position/Furniture
           if (lower.includes('chair')) return '🪑';
           if (lower.includes('desk') || lower.includes('table')) return '🪑';
           if (lower.includes('drawer')) return '🗄️';
           if (lower.includes('box')) return '📦';
-          if (lower.includes('on')) return '⬇️';
+          if (lower.includes('on')) return '⬇️'; // on top
           if (lower.includes('in')) return '📦';
           if (lower.includes('under')) return '⬇️';
 
@@ -710,6 +736,7 @@
                     {/* 簡易差異比較 */}
                     <div className="flex flex-wrap gap-1 mt-2">
                         {targetWords.map((word, idx) => {
+                            // 簡單比對：如果這個字在 spokenWords 裡完全找不到，標示紅色
                             const isMissing = !spokenWords.includes(word);
                             return (
                                 <span 
@@ -1156,7 +1183,6 @@
                               `}
                             >
                               <span className="z-10 relative">{card.content}</span>
-                              {card.type === 'en' && <span className="absolute top-1 right-1 opacity-20 text-2xl">{getIcon(card.content)}</span>}
                             </button>
                           );
                         })}
