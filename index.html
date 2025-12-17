@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>鳥嶼國小英語學習護照v1.4</title>
+    <title>鳥嶼國小英語學習護照 - 完整加強版</title>
     
     <!-- 載入 Tailwind CSS (樣式) -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -62,7 +62,7 @@
             Info: (props) => <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" x2="12" y1="16" y2="12"/><line x1="12" x2="12.01" y1="8" y2="8"/></svg>
         };
 
-        // --- 資料庫內容 ---
+        // --- 資料庫內容 (Updated from PDF) ---
         const curriculumData = {
           "Grade 3": {
             "Name (名字)": [
@@ -70,6 +70,7 @@
               { en: "you", zh: "你" },
               { en: "What's your name?", zh: "你叫什麼名字？" },
               { en: "My name is...", zh: "我的名字是..." },
+              { en: "Please spell your name.", zh: "請拼出你的名字。" },
               { en: "How are you?", zh: "你好嗎？" },
               { en: "I'm fine.", zh: "我很好。" }
             ],
@@ -85,9 +86,13 @@
               { en: "nine", zh: "9" },
               { en: "ten", zh: "10" },
               { en: "How old are you?", zh: "你今年幾歲？" },
-              { en: "I'm eight years old.", zh: "我今年八歲。" }
+              { en: "I'm eight years old.", zh: "我今年八歲。" },
+              { en: "Thank you.", zh: "謝謝。" },
+              { en: "You're welcome.", zh: "不客氣。" }
             ],
             "Stationery (文具)": [
+              { en: "this", zh: "這個" },
+              { en: "that", zh: "那個" },
               { en: "pen", zh: "原子筆" },
               { en: "pencil", zh: "鉛筆" },
               { en: "ruler", zh: "尺" },
@@ -97,7 +102,11 @@
               { en: "marker", zh: "奇異筆" },
               { en: "glue", zh: "膠水" },
               { en: "What's this?", zh: "這是什麼？" },
-              { en: "It's a pencil.", zh: "這是一支鉛筆。" }
+              { en: "It's a pencil.", zh: "這是一支鉛筆。" },
+              { en: "What's that?", zh: "那是什麼？" },
+              { en: "It's an eraser.", zh: "那是一塊橡皮擦。" },
+              { en: "Good job!", zh: "做得好！" },
+              { en: "Thanks!", zh: "謝啦！" }
             ],
             "Color (顏色)": [
               { en: "red", zh: "紅色" },
@@ -107,16 +116,25 @@
               { en: "black", zh: "黑色" },
               { en: "white", zh: "白色" },
               { en: "pink", zh: "粉紅色" },
-              { en: "What color is it?", zh: "它是什麼顏色？" }
+              { en: "What color is it?", zh: "它是什麼顏色？" },
+              { en: "It's pink.", zh: "它是粉紅色。" },
+              { en: "What's that?", zh: "那是什麼？" },
+              { en: "It's a blue pen.", zh: "那是一隻藍色的筆。" },
+              { en: "Good morning.", zh: "早安。" },
+              { en: "Good afternoon.", zh: "午安。" }
             ],
-            "Food (食物)": [
+            "Food & Others (食物與其他)": [
               { en: "apple", zh: "蘋果" },
               { en: "banana", zh: "香蕉" },
               { en: "egg", zh: "雞蛋" },
               { en: "milk", zh: "牛奶" },
               { en: "cake", zh: "蛋糕" },
+              { en: "Are you OK?", zh: "你還好嗎？" },
+              { en: "Yes, thank you.", zh: "我還好，謝謝。" },
               { en: "I'm sorry.", zh: "真抱歉。" },
-              { en: "That's OK.", zh: "沒關係。" }
+              { en: "That's OK.", zh: "沒關係。" },
+              { en: "Cool!", zh: "太酷了！" },
+              { en: "Line up!", zh: "排隊囉！" }
             ],
             "Animals (動物)": [
               { en: "dog", zh: "狗" },
@@ -128,7 +146,14 @@
               { en: "tiger", zh: "老虎" },
               { en: "pig", zh: "豬" },
               { en: "chicken", zh: "雞" },
-              { en: "Is that a tiger?", zh: "那是一隻老虎嗎？" }
+              { en: "big", zh: "大的" },
+              { en: "small", zh: "小的" },
+              { en: "Is that a tiger?", zh: "那是一隻老虎嗎？" },
+              { en: "Yes, it is.", zh: "是的。" },
+              { en: "Is this a chicken?", zh: "這是一隻雞嗎？" },
+              { en: "No, it's not.", zh: "不是。" },
+              { en: "Try again.", zh: "再試一次。" },
+              { en: "That's right.", zh: "沒錯。" }
             ],
             "Talents (才藝)": [
                 { en: "sing", zh: "唱歌" },
@@ -137,7 +162,12 @@
                 { en: "swim", zh: "游泳" },
                 { en: "read", zh: "閱讀" },
                 { en: "ride a bike", zh: "騎腳踏車" },
-                { en: "Can you swim?", zh: "你會游泳嗎?" }
+                { en: "Can you swim?", zh: "你會游泳嗎?" },
+                { en: "No, I can't.", zh: "不，我不會。" },
+                { en: "Can you draw?", zh: "你會畫畫嗎？" },
+                { en: "Yes, I can.", zh: "會，我會。" },
+                { en: "Let's go!", zh: "走吧！" },
+                { en: "Help!", zh: "幫我！" }
             ],
             "Family (家庭)": [
               { en: "father", zh: "爸爸" },
@@ -145,7 +175,25 @@
               { en: "brother", zh: "哥哥/弟弟" },
               { en: "sister", zh: "姊姊/妹妹" },
               { en: "grandfather", zh: "爺爺/外公" },
-              { en: "Who is she?", zh: "她是誰？" }
+              { en: "grandmother", zh: "奶奶/外婆" },
+              { en: "Who is she?", zh: "她是誰？" },
+              { en: "She's my mother.", zh: "她是我媽媽。" },
+              { en: "Who are they?", zh: "他們是誰？" },
+              { en: "They're my sisters.", zh: "他們是我姐姐/妹妹。" },
+              { en: "Nice to meet you.", zh: "很高興認識你。" }
+            ],
+            "Career (職業)": [
+                { en: "teacher", zh: "老師" },
+                { en: "student", zh: "學生" },
+                { en: "doctor", zh: "醫生" },
+                { en: "nurse", zh: "護士" },
+                { en: "cook", zh: "廚師" },
+                { en: "driver", zh: "司機" },
+                { en: "fisherman", zh: "漁夫" },
+                { en: "Is your father a cook?", zh: "你爸爸是廚師嗎？" },
+                { en: "Yes, he is.", zh: "是的。" },
+                { en: "Goodbye.", zh: "再見。" },
+                { en: "See you.", zh: "再見。" }
             ]
           },
           "Grade 4": {
@@ -160,7 +208,8 @@
               { en: "eighteen", zh: "18" },
               { en: "nineteen", zh: "19" },
               { en: "twenty", zh: "20" },
-              { en: "Are you ready?", zh: "準備好了嗎？" }
+              { en: "Are you ready?", zh: "準備好了嗎？" },
+              { en: "Ready!", zh: "準備好了！" }
             ],
             "Emotion (情緒)": [
               { en: "happy", zh: "開心的" },
@@ -169,17 +218,28 @@
               { en: "hungry", zh: "餓的" },
               { en: "tired", zh: "累的" },
               { en: "thirsty", zh: "口渴的" },
-              { en: "Are you happy?", zh: "你開心嗎？" }
+              { en: "Are you happy?", zh: "你開心嗎？" },
+              { en: "Yes, I am.", zh: "是的。" },
+              { en: "Is she angry?", zh: "她在生氣嗎？" },
+              { en: "No, she's not.", zh: "不，她沒有。" },
+              { en: "Watch out!", zh: "小心！" },
+              { en: "Are you OK?", zh: "你還好嗎？" }
             ],
             "Time (時間)": [
               { en: "thirty", zh: "30" },
               { en: "forty", zh: "40" },
               { en: "fifty", zh: "50" },
               { en: "sixty", zh: "60" },
+              { en: "seventy", zh: "70" },
+              { en: "eighty", zh: "80" },
+              { en: "ninety", zh: "90" },
               { en: "minute", zh: "分鐘" },
               { en: "o'clock", zh: "整點" },
               { en: "What time is it?", zh: "現在幾點了？" },
-              { en: "Time's up!", zh: "時間到了！" }
+              { en: "It's eleven twenty.", zh: "現在11點20分。" },
+              { en: "It's twelve o'clock.", zh: "現在12點整。" },
+              { en: "Time's up!", zh: "時間到了！" },
+              { en: "Sorry, I'm late.", zh: "抱歉，我遲到了。" }
             ],
             "Position (位置)": [
               { en: "on", zh: "在...上面" },
@@ -189,14 +249,25 @@
               { en: "desk", zh: "書桌" },
               { en: "chair", zh: "椅子" },
               { en: "drawer", zh: "抽屜" },
-              { en: "Where is my ruler?", zh: "我的尺在哪裡？" }
+              { en: "table", zh: "桌子" },
+              { en: "Where is my ruler?", zh: "我的尺在哪裡？" },
+              { en: "It's on the desk.", zh: "在書桌上。" },
+              { en: "Where is your eraser?", zh: "你的橡皮擦在哪裡？" },
+              { en: "It's in the drawer.", zh: "放在抽屜裡。" },
+              { en: "Here you are.", zh: "給你。" }
             ],
             "Room (房間)": [
                 { en: "bedroom", zh: "臥室" },
                 { en: "bathroom", zh: "浴室" },
                 { en: "living room", zh: "客廳" },
                 { en: "kitchen", zh: "廚房" },
-                { en: "dining room", zh: "飯廳" }
+                { en: "dining room", zh: "飯廳" },
+                { en: "garage", zh: "車庫" },
+                { en: "Where is Sandy?", zh: "珊迪在哪裡？" },
+                { en: "She's in the bedroom.", zh: "她在房間。" },
+                { en: "Where is Andy?", zh: "安迪在哪裡？" },
+                { en: "He's in the kitchen.", zh: "他在廚房。" },
+                { en: "May I go to the restroom?", zh: "我可以去上廁所嗎？" }
             ],
             "Weather (天氣)": [
               { en: "sunny", zh: "晴天的" },
@@ -206,14 +277,57 @@
               { en: "windy", zh: "颳風的" },
               { en: "cold", zh: "寒冷的" },
               { en: "hot", zh: "熱的" },
-              { en: "How's the weather?", zh: "天氣如何？" }
+              { en: "warm", zh: "溫暖的" },
+              { en: "How's the weather?", zh: "天氣如何？" },
+              { en: "It's cloudy.", zh: "現在陰天。" },
+              { en: "It's rainy.", zh: "現在下雨。" },
+              { en: "I don't know.", zh: "我不知道。" },
+              { en: "Good idea!", zh: "好主意！" }
+            ],
+            "Activities (活動)": [
+                { en: "cook", zh: "煮飯" },
+                { en: "paint", zh: "畫畫" },
+                { en: "sleep", zh: "睡覺" },
+                { en: "study", zh: "讀書" },
+                { en: "jog", zh: "慢跑" },
+                { en: "exercise", zh: "運動" },
+                { en: "What are you doing?", zh: "你在做什麼？" },
+                { en: "I'm studying.", zh: "我在讀書。" },
+                { en: "What is Tim doing?", zh: "提姆在做什麼？" },
+                { en: "He's jogging.", zh: "他在慢跑。" },
+                { en: "Is Judy sleeping?", zh: "茱蒂在睡覺嗎？" },
+                { en: "Yes, she is.", zh: "是的。" },
+                { en: "Are you done?", zh: "你好了嗎？" },
+                { en: "Yes, I am.", zh: "我好了。" }
             ],
             "Fast Food (速食)": [
                 { en: "hamburger", zh: "漢堡" },
                 { en: "hot dog", zh: "熱狗" },
                 { en: "pie", zh: "派" },
                 { en: "soup", zh: "湯" },
-                { en: "ice cream", zh: "冰淇淋" }
+                { en: "ice cream", zh: "冰淇淋" },
+                { en: "What do you want to eat?", zh: "你想吃什麼？" },
+                { en: "I want some ice cream.", zh: "我想吃冰淇淋。" },
+                { en: "What does Amy want to eat?", zh: "艾咪想吃什麼？" },
+                { en: "She wants some hamburgers.", zh: "她想吃漢堡。" },
+                { en: "How about you?", zh: "那你呢？" },
+                { en: "Me, too.", zh: "我也是。" }
+            ],
+            "Animals (動物2)": [
+                { en: "elephant", zh: "大象" },
+                { en: "monkey", zh: "猴子" },
+                { en: "bear", zh: "熊" },
+                { en: "panda", zh: "貓熊" },
+                { en: "turtle", zh: "烏龜" },
+                { en: "tall", zh: "高的" },
+                { en: "short", zh: "矮的" },
+                { en: "thin", zh: "瘦的" },
+                { en: "Do you like lions?", zh: "你喜歡獅子嗎？" },
+                { en: "No, I don't.", zh: "不，我不喜歡。" },
+                { en: "Does Jack like tigers?", zh: "傑克喜歡老虎嗎？" },
+                { en: "Yes, he does.", zh: "是，他喜歡。" },
+                { en: "What do you see?", zh: "你看到了什麼？" },
+                { en: "I see an elephant.", zh: "我看到一隻大象。" }
             ]
           },
           "Grade 5": {
@@ -222,25 +336,30 @@
               { en: "grapes", zh: "葡萄" },
               { en: "watermelon", zh: "西瓜" },
               { en: "pear", zh: "梨子" },
-              { en: "Do they like bananas?", zh: "他們喜歡香蕉嗎？" }
+              { en: "Do they like bananas?", zh: "他們喜歡香蕉嗎？" },
+              { en: "Yes, they do.", zh: "是的。" },
+              { en: "What does David want?", zh: "大衛想要什麼？" },
+              { en: "He wants an apple.", zh: "他要一顆蘋果。" },
+              { en: "May I go to the restroom?", zh: "我可以去廁所嗎？" }
             ],
             "Drinks (飲料)": [
               { en: "coffee", zh: "咖啡" },
               { en: "juice", zh: "果汁" },
               { en: "tea", zh: "茶" },
+              { en: "hot chocolate", zh: "熱可可" },
               { en: "water", zh: "水" },
               { en: "milk", zh: "牛奶" },
               { en: "soda", zh: "汽水" },
               { en: "coke", zh: "可樂" },
-              { en: "lemonade", zh: "檸檬水" }
-            ],
-            "Vegetable (蔬菜)": [
-                { en: "carrot", zh: "紅蘿蔔" },
-                { en: "onion", zh: "洋蔥" },
-                { en: "cucumber", zh: "小黃瓜" },
-                { en: "potato", zh: "馬鈴薯" },
-                { en: "tomato", zh: "番茄" },
-                { en: "mushroom", zh: "蘑菇" }
+              { en: "lemonade", zh: "檸檬水" },
+              { en: "What does Jenny want to drink?", zh: "珍妮想喝什麼？" },
+              { en: "She wants some juice.", zh: "她想喝果汁。" },
+              { en: "May I come in?", zh: "我可以進來嗎？" },
+              { en: "Come in, please.", zh: "請進。" },
+              { en: "Does Kevin want some milk?", zh: "凱文想喝牛奶嗎？" },
+              { en: "No, he doesn't.", zh: "不，他不想。" },
+              { en: "What do they want to drink?", zh: "他們想喝什麼？" },
+              { en: "They want some tea.", zh: "他們想喝茶。" }
             ],
             "Week (星期)": [
               { en: "Monday", zh: "星期一" },
@@ -250,15 +369,49 @@
               { en: "Friday", zh: "星期五" },
               { en: "Saturday", zh: "星期六" },
               { en: "Sunday", zh: "星期日" },
-              { en: "weekend", zh: "週末" }
+              { en: "weekend", zh: "週末" },
+              { en: "weekdays", zh: "週間" },
+              { en: "holiday", zh: "假日" },
+              { en: "What day is today?", zh: "今天星期幾？" },
+              { en: "Today is Wednesday.", zh: "今天星期三。" },
+              { en: "Excuse me.", zh: "不好意思。" },
+              { en: "Happy Birthday!", zh: "生日快樂！" },
+              { en: "Is today Thursday?", zh: "今天是星期四嗎？" },
+              { en: "No, it's not.", zh: "不是。" },
+              { en: "It's not my day today.", zh: "今天真不順。" },
+              { en: "It's my lucky day!", zh: "今天運氣真好！" }
+            ],
+            "Vegetable (蔬菜)": [
+                { en: "carrot", zh: "紅蘿蔔" },
+                { en: "onion", zh: "洋蔥" },
+                { en: "cucumber", zh: "小黃瓜" },
+                { en: "bell pepper", zh: "彩椒" },
+                { en: "potato", zh: "馬鈴薯" },
+                { en: "tomato", zh: "番茄" },
+                { en: "mushroom", zh: "蘑菇" },
+                { en: "Do you need some potatoes?", zh: "你需要一些馬鈴薯嗎？" },
+                { en: "Yes, please.", zh: "是的，麻煩你了。" },
+                { en: "May I help you?", zh: "我能幫什麼忙呢？" },
+                { en: "Thanks for helping.", zh: "謝謝你的幫忙。" },
+                { en: "How many carrots do you need?", zh: "你需要多少紅蘿蔔？" },
+                { en: "I need three carrots.", zh: "我需要三根。" },
+                { en: "Does Tina need some tomatoes?", zh: "蒂娜需要一些番茄嗎？" },
+                { en: "No, she doesn't.", zh: "她不需要。" }
             ],
             "Food (食物2)": [
                 { en: "pizza", zh: "披薩" },
+                { en: "pumpkin", zh: "南瓜" },
                 { en: "rice", zh: "米飯" },
                 { en: "noodles", zh: "麵" },
                 { en: "bread", zh: "麵包" },
                 { en: "beef", zh: "牛肉" },
-                { en: "pork", zh: "豬肉" }
+                { en: "pork", zh: "豬肉" },
+                { en: "waiter", zh: "男服務生" },
+                { en: "waitress", zh: "女服務生" },
+                { en: "What would you like to eat?", zh: "你想吃什麼？" },
+                { en: "I'd like some bread.", zh: "我想吃麵包。" },
+                { en: "How much are they?", zh: "這些多少錢？" },
+                { en: "They're fifty-three dollars.", zh: "它們五十三元。" }
             ],
             "Places (地點)": [
               { en: "bakery", zh: "麵包店" },
@@ -269,7 +422,19 @@
               { en: "hospital", zh: "醫院" },
               { en: "supermarket", zh: "超級市場" },
               { en: "post office", zh: "郵局" },
-              { en: "Where are you going?", zh: "你要去哪裡？" }
+              { en: "airport", zh: "機場" },
+              { en: "Where are you going?", zh: "你要去哪裡？" },
+              { en: "I'm going to the library.", zh: "我要去圖書館。" },
+              { en: "Hurry up!", zh: "快一點！" },
+              { en: "Be quiet.", zh: "安靜。" },
+              { en: "Where is Betty going?", zh: "貝蒂要去哪裡？" },
+              { en: "She's going to the supermarket.", zh: "她要去超級市場。" },
+              { en: "Are you going to the library?", zh: "你要去圖書館嗎？" },
+              { en: "Yes, I am.", zh: "是的。" },
+              { en: "Is Alan going to the post office?", zh: "艾倫要去郵局嗎？" },
+              { en: "No, he's not.", zh: "不。" },
+              { en: "That's great.", zh: "太好了。" },
+              { en: "Bravo!", zh: "太棒了！" }
             ],
             "Transportation (交通)": [
                 { en: "scooter", zh: "機車" },
@@ -278,17 +443,62 @@
                 { en: "train", zh: "火車" },
                 { en: "boat", zh: "船" },
                 { en: "plane", zh: "飛機" },
-                { en: "MRT", zh: "捷運" }
+                { en: "MRT", zh: "捷運" },
+                { en: "taxi", zh: "計程車" },
+                { en: "walk", zh: "走路" },
+                { en: "How can I get to the bakery?", zh: "我該怎麼去麵包店？" },
+                { en: "You can get there by bike.", zh: "你可以騎腳踏車去。" },
+                { en: "How can I get to the library?", zh: "我該怎麼去圖書館？" },
+                { en: "You can walk there.", zh: "你可以走路去。" },
+                { en: "Can we get there on foot?", zh: "我們可以走路去嗎？" },
+                { en: "No, we can't. That's too far.", zh: "不行，太遠了。" },
+                { en: "Can Sam get to the park by bike?", zh: "山姆可以騎腳踏車去公園嗎？" },
+                { en: "Yes, he can. It's nearby.", zh: "可以，就在附近而已。" },
+                { en: "Are you done?", zh: "你好了嗎？" },
+                { en: "Yes, I am.", zh: "我好了。" }
             ],
             "Subject (科目)": [
-              { en: "Chinese", zh: "國語" },
-              { en: "English", zh: "英語" },
-              { en: "math", zh: "數學" },
-              { en: "music", zh: "音樂" },
-              { en: "PE", zh: "體育" },
-              { en: "science", zh: "自然" },
               { en: "art", zh: "藝術" },
-              { en: "What's your favorite subject?", zh: "你最喜歡什麼科目？" }
+              { en: "Chinese", zh: "國語" },
+              { en: "music", zh: "音樂" },
+              { en: "English", zh: "英語" },
+              { en: "social studies", zh: "社會" },
+              { en: "science", zh: "自然" },
+              { en: "math", zh: "數學" },
+              { en: "PE", zh: "體育" },
+              { en: "computer", zh: "電腦" },
+              { en: "What's your favorite subject?", zh: "你最喜歡什麼科目？" },
+              { en: "My favorite subject is math.", zh: "我最喜歡數學課。" },
+              { en: "What's Kelly's favorite subject?", zh: "凱莉最喜歡什麼科目？" },
+              { en: "Her favorite subject is English.", zh: "她最喜歡英文課。" },
+              { en: "What's Eric's favorite subject?", zh: "艾瑞克最喜歡什麼科目？" },
+              { en: "His favorite subject is PE.", zh: "他最喜歡體育課。" },
+              { en: "What's Jenny and Tony's favorite subject?", zh: "珍妮和東尼最喜歡什麼科目？" },
+              { en: "Their favorite subject is science.", zh: "他們最喜歡自然課。" },
+              { en: "Does Sherry like music class?", zh: "雪莉喜歡音樂課嗎？" },
+              { en: "Yes, she does.", zh: "是的，她喜歡。" }
+            ],
+            "Activities (活動)": [
+                { en: "walk the dog", zh: "遛狗" },
+                { en: "watch TV", zh: "看電視" },
+                { en: "do my homework", zh: "寫作業" },
+                { en: "listen to music", zh: "聽音樂" },
+                { en: "What do you do after school?", zh: "你放學後會做什麼？" },
+                { en: "I do my homework after school.", zh: "我會寫作業。" },
+                { en: "What does Lily do after school?", zh: "莉莉放學後會做什麼？" },
+                { en: "She listens to music after school.", zh: "她會聽音樂。" },
+                { en: "Be careful!", zh: "注意安全！" },
+                { en: "Stop!", zh: "停止！" },
+                { en: "play sports", zh: "運動" },
+                { en: "read books", zh: "閱讀" },
+                { en: "surf the Internet", zh: "上網" },
+                { en: "play video games", zh: "打電動" },
+                { en: "Does Jimmy read books after school?", zh: "吉米放學後會閱讀嗎？" },
+                { en: "No, he doesn't.", zh: "不，他不會。" },
+                { en: "Do your sisters play video games after school?", zh: "你姐姐們在放學後會打電動嗎？" },
+                { en: "No, they don't.", zh: "不，他們不會。" },
+                { en: "What do you do on Thursday?", zh: "你星期四都做什麼？" },
+                { en: "I play sports.", zh: "我會運動。" }
             ]
           },
           "Grade 6": {
@@ -297,68 +507,170 @@
               { en: "go to bed", zh: "上床睡覺" },
               { en: "go to school", zh: "去上學" },
               { en: "go home", zh: "回家" },
+              { en: "What time do you get up?", zh: "你幾點起床？" },
+              { en: "I get up at six thirty.", zh: "我六點半起床。" },
+              { en: "What time does Andy go home?", zh: "安迪幾點回家？" },
+              { en: "He goes home at five o'clock.", zh: "他五點回家。" },
+              { en: "Have fun!", zh: "玩得愉快！" },
               { en: "have breakfast", zh: "吃早餐" },
               { en: "have lunch", zh: "吃午餐" },
               { en: "have dinner", zh: "吃晚餐" },
               { en: "take a shower", zh: "洗澡" },
-              { en: "What time do you get up?", zh: "你幾點起床？" }
+              { en: "Does Mary have breakfast at seven?", zh: "瑪莉七點吃早餐嗎？" },
+              { en: "Yes, she does.", zh: "是的。" },
+              { en: "Do you have lunch at eleven fifty?", zh: "你11點50分吃午餐嗎？" },
+              { en: "No, I don't. I have lunch at twelve.", zh: "不，我12點吃。" },
+              { en: "Take it easy.", zh: "放輕鬆。" },
+              { en: "Be an early bird.", zh: "早點起床。" }
+            ],
+            "Food (食物)": [
+                { en: "dumplings", zh: "水餃" },
+                { en: "French fries", zh: "薯條" },
+                { en: "fried chicken", zh: "炸雞" },
+                { en: "steak", zh: "牛排" },
+                { en: "noodles", zh: "麵" },
+                { en: "rice", zh: "米飯" },
+                { en: "pizza", zh: "披薩" },
+                { en: "What would you like to eat?", zh: "你想吃什麼？" },
+                { en: "I'd like some dumplings.", zh: "我想吃水餃。" },
+                { en: "Would you like some steak?", zh: "你想吃點牛排嗎？" },
+                { en: "No, thank you.", zh: "不用了，謝謝。" }
             ],
             "Countries (國家)": [
-              { en: "Taiwan", zh: "臺灣" },
-              { en: "The USA", zh: "美國" },
               { en: "The UK", zh: "英國" },
+              { en: "The USA", zh: "美國" },
+              { en: "Taiwan", zh: "臺灣" },
               { en: "Japan", zh: "日本" },
               { en: "Italy", zh: "義大利" },
+              { en: "Greece", zh: "希臘" },
+              { en: "Egypt", zh: "埃及" },
               { en: "Canada", zh: "加拿大" },
-              { en: "Where are you from?", zh: "你從哪裡來？" }
-            ],
-            "Clothing (衣物)": [
-              { en: "shirt", zh: "襯衫" },
-              { en: "pants", zh: "長褲" },
-              { en: "shorts", zh: "短褲" },
-              { en: "dress", zh: "洋裝" },
-              { en: "skirt", zh: "裙子" },
-              { en: "jacket", zh: "外套" },
-              { en: "sweater", zh: "毛衣" },
-              { en: "shoes", zh: "鞋子" },
-              { en: "sneakers", zh: "球鞋" },
-              { en: "How much is this?", zh: "這個多少錢？" }
+              { en: "Where are you from?", zh: "你從哪裡來？" },
+              { en: "I'm from Taiwan.", zh: "我來自臺灣。" },
+              { en: "Is Harry from Italy?", zh: "哈利來自義大利嗎？" },
+              { en: "No, he's not. He's from the UK.", zh: "不，他來自英國。" }
             ],
             "Belongings (物品)": [
                 { en: "watch", zh: "手錶" },
+                { en: "cellphone", zh: "手機" },
                 { en: "key", zh: "鑰匙" },
                 { en: "umbrella", zh: "雨傘" },
-                { en: "cellphone", zh: "手機" },
                 { en: "glasses", zh: "眼鏡" },
-                { en: "water bottle", zh: "水瓶" }
+                { en: "gloves", zh: "手套" },
+                { en: "Whose umbrella is it?", zh: "那是誰的傘？" },
+                { en: "It's Cindy's umbrella.", zh: "是辛蒂的。" },
+                { en: "Whose glasses are they?", zh: "這是誰的眼鏡？" },
+                { en: "They're my glasses.", zh: "我的。" },
+                { en: "Remember your belongings.", zh: "請記得你的隨身物品。" },
+                { en: "shoes", zh: "鞋子" },
+                { en: "water bottle", zh: "水瓶" },
+                { en: "bag", zh: "袋子" },
+                { en: "box", zh: "盒子/箱子" },
+                { en: "Is it your cellphone?", zh: "這是你的手機嗎？" },
+                { en: "No, it's not.", zh: "不是。" },
+                { en: "Are they Peter's gloves?", zh: "這是彼得的手套嗎？" },
+                { en: "Yes, they are. They're his gloves.", zh: "沒錯，那是他的手套。" }
+            ],
+            "Clothing Items (衣物)": [
+              { en: "shirt", zh: "襯衫" },
+              { en: "pants", zh: "長褲" },
+              { en: "shorts", zh: "短褲" },
+              { en: "sweater", zh: "毛衣" },
+              { en: "dress", zh: "洋裝" },
+              { en: "vest", zh: "背心" },
+              { en: "jacket", zh: "外套" },
+              { en: "skirt", zh: "裙子" },
+              { en: "socks", zh: "襪子" },
+              { en: "scarf", zh: "圍巾" },
+              { en: "sneakers", zh: "球鞋" },
+              { en: "How much is this dress?", zh: "這件洋裝多少錢？" },
+              { en: "It's five hundred dollars.", zh: "五百元。" },
+              { en: "It's sold out.", zh: "賣完了。" },
+              { en: "How much are the sneakers?", zh: "這雙鞋多少錢？" },
+              { en: "They're one thousand and ninety dollars.", zh: "這雙鞋1090元。" },
+              { en: "How much are the vest and the skirt?", zh: "這件背心和裙子多少錢？" },
+              { en: "They're two thousand and four hundred in total.", zh: "總計2400元。" },
+              { en: "It's on sale.", zh: "特價中。" }
+            ],
+            "Activities (活動)": [
+              { en: "go fishing", zh: "釣魚" },
+              { en: "go swimming", zh: "游泳" },
+              { en: "go surfing", zh: "衝浪" },
+              { en: "go shopping", zh: "逛街" },
+              { en: "go hiking", zh: "健走" },
+              { en: "go biking", zh: "騎腳踏車" },
+              { en: "go camping", zh: "露營" },
+              { en: "What do you do in your free time?", zh: "你有空的時候會做什麼？" },
+              { en: "I go swimming.", zh: "我會去游泳。" },
+              { en: "What does Daniel do in his free time?", zh: "丹尼爾有空的時候會做什麼？" },
+              { en: "He goes biking.", zh: "他會去騎腳踏車。" },
+              { en: "play basketball", zh: "打籃球" },
+              { en: "play badminton", zh: "打羽毛球" },
+              { en: "play table tennis", zh: "打桌球" },
+              { en: "play cards", zh: "打牌" },
+              { en: "Do you go shopping in your free time?", zh: "你有空的時候會去逛街嗎？" },
+              { en: "Yes, I do.", zh: "會，我會。" },
+              { en: "Does Kevin read books in his free time?", zh: "凱文有空的時候會閱讀嗎？" },
+              { en: "No, he doesn't.", zh: "不，他不會。" },
+              { en: "Hurray!", zh: "喔耶！" },
+              { en: "Ouch!", zh: "唉唷！" }
             ],
             "Body Parts (身體)": [
               { en: "eyes", zh: "眼睛" },
               { en: "ears", zh: "耳朵" },
-              { en: "nose", zh: "鼻子" },
               { en: "hands", zh: "手" },
-              { en: "feet", zh: "腳" },
+              { en: "foot", zh: "腳(單)" },
+              { en: "feet", zh: "腳(複)" },
+              { en: "nose", zh: "鼻子" },
               { en: "head", zh: "頭" },
+              { en: "shoulder", zh: "肩膀" },
               { en: "knee", zh: "膝蓋" },
-              { en: "shoulder", zh: "肩膀" }
+              { en: "finger", zh: "手指" },
+              { en: "toe", zh: "腳趾" },
+              { en: "leg", zh: "腿" },
+              { en: "long", zh: "長的" },
+              { en: "short", zh: "短的" },
+              { en: "left", zh: "左邊的" },
+              { en: "right", zh: "右邊的" }
             ],
             "Sick (生病)": [
               { en: "sick", zh: "生病的" },
+              { en: "dizzy", zh: "頭暈的" },
+              { en: "runny nose", zh: "流鼻水" },
+              { en: "fever", zh: "發燒" },
+              { en: "sore throat", zh: "喉嚨痛" },
               { en: "headache", zh: "頭痛" },
               { en: "toothache", zh: "牙痛" },
+              { en: "catch a cold", zh: "感冒" },
               { en: "stomachache", zh: "胃痛" },
-              { en: "fever", zh: "發燒" },
-              { en: "runny nose", zh: "流鼻水" },
-              { en: "sore throat", zh: "喉嚨痛" },
-              { en: "catch a cold", zh: "感冒" }
+              { en: "What's wrong with Leo?", zh: "里歐怎麼了？" },
+              { en: "He has a headache.", zh: "他頭痛。" },
+              { en: "I'm not feeling well.", zh: "我不舒服。" },
+              { en: "I have a sweet tooth.", zh: "我喜歡吃甜食。" }
             ],
-            "Places (地點2)": [
-                { en: "restaurant", zh: "餐廳" },
+            "Places (地點)": [
                 { en: "bookstore", zh: "書店" },
+                { en: "restaurant", zh: "餐廳" },
+                { en: "bus stop", zh: "公車站" },
+                { en: "train station", zh: "火車站" },
+                { en: "Is there a bus stop nearby?", zh: "這附近有公車站嗎？" },
+                { en: "Yes, there is.", zh: "這附近有。" },
+                { en: "Is there a restaurant nearby?", zh: "這附近有餐廳嗎？" },
+                { en: "No, there isn't.", zh: "這附近沒有。" },
+                { en: "How can we get to the bookstore?", zh: "我們該怎麼去書店？" },
+                { en: "We can get there on foot.", zh: "我們可以走路去。" },
+                { en: "nearby", zh: "附近" },
+                { en: "street", zh: "街道" },
+                { en: "road", zh: "路" },
+                { en: "coffee shop", zh: "咖啡廳" },
                 { en: "movie theater", zh: "電影院" },
                 { en: "night market", zh: "夜市" },
                 { en: "police station", zh: "警察局" },
-                { en: "coffee shop", zh: "咖啡廳" }
+                { en: "Where is the supermarket?", zh: "超市在哪裡？" },
+                { en: "It's on Green Street.", zh: "在綠街。" },
+                { en: "Where is the restaurant?", zh: "餐廳在哪裡？" },
+                { en: "It's in Lintou Park.", zh: "在林投公園裡。" },
+                { en: "Let's hit the road.", zh: "出發吧！" }
             ]
           }
         };
@@ -393,6 +705,7 @@
           if (lower.includes('belonging')) return '👜';
           if (lower.includes('body')) return '💪';
           if (lower.includes('sick')) return '🤒';
+          if (lower.includes('career')) return '👨‍⚕️'; // New for Career
 
           // General & Pronouns
           if (lower === 'i') return '🙋';
@@ -406,6 +719,7 @@
           if (lower.includes('cool')) return '😎';
           if (lower.includes('meet')) return '🤝';
           if (lower.includes('welcome')) return '😊';
+          if (lower.includes('goodbye') || lower.includes('see you')) return '👋';
           
           // Numbers (Enhanced)
           if (lower.match(/\b(one|1)\b/)) return '1️⃣';
@@ -446,6 +760,7 @@
           if (lower.includes('book')) return '📖';
           if (lower.includes('marker')) return '🖍️';
           if (lower.includes('glue')) return '🧴';
+          if (lower.includes('this') || lower.includes('that')) return '👉';
 
           // Colors
           if (lower.includes('red')) return '🔴';
@@ -493,6 +808,7 @@
           if (lower.includes('corn')) return '🌽';
           if (lower.includes('onion')) return '🧅';
           if (lower.includes('cucumber')) return '🥒';
+          if (lower.includes('bell pepper')) return '🫑';
           if (lower.includes('potato')) return '🥔';
           if (lower.includes('tomato')) return '🍅';
           if (lower.includes('mushroom')) return '🍄';
@@ -547,6 +863,7 @@
           if (lower.includes('finger')) return '👆';
           if (lower.includes('toe')) return '🦶';
           if (lower.includes('leg')) return '🦵';
+          if (lower.includes('dizzy')) return '💫';
 
           // Weather
           if (lower.includes('sunny')) return '☀️';
@@ -582,6 +899,7 @@
           if (lower.includes('airport')) return '✈️';
           if (lower.includes('station')) return '🚉';
           if (lower.includes('stop')) return '🚏';
+          if (lower.includes('garage')) return '🚗';
 
           // Transportation
           if (lower.includes('scooter')) return '🛵';
@@ -651,7 +969,7 @@
           if (lower.includes('canada')) return '🇨🇦';
 
           // Subjects
-          if (lower.includes('chinese')) return '🇹🇼'; // Or book
+          if (lower.includes('chinese')) return '🇹🇼'; 
           if (lower.includes('english')) return '🅰️';
           if (lower.includes('math')) return '➗';
           if (lower.includes('music')) return '🎵';
@@ -670,7 +988,7 @@
           if (lower.includes('desk') || lower.includes('table')) return '🪑';
           if (lower.includes('drawer')) return '🗄️';
           if (lower.includes('box')) return '📦';
-          if (lower.includes('on')) return '⬇️'; // on top
+          if (lower.includes('on')) return '⬇️';
           if (lower.includes('in')) return '📦';
           if (lower.includes('under')) return '⬇️';
 
@@ -736,7 +1054,6 @@
                     {/* 簡易差異比較 */}
                     <div className="flex flex-wrap gap-1 mt-2">
                         {targetWords.map((word, idx) => {
-                            // 簡單比對：如果這個字在 spokenWords 裡完全找不到，標示紅色
                             const isMissing = !spokenWords.includes(word);
                             return (
                                 <span 
@@ -781,11 +1098,12 @@
 
           // Number word mapping
           const numberMap = {
-            "1": "one", "2": "two", "3": "three", "4": "four", "5": "five",
+            "0": "zero", "1": "one", "2": "two", "3": "three", "4": "four", "5": "five",
             "6": "six", "7": "seven", "8": "eight", "9": "nine", "10": "ten",
             "11": "eleven", "12": "twelve", "13": "thirteen", "14": "fourteen", "15": "fifteen",
             "16": "sixteen", "17": "seventeen", "18": "eighteen", "19": "nineteen", "20": "twenty",
-            "30": "thirty", "40": "forty", "50": "fifty", "60": "sixty", "70": "seventy", "80": "eighty", "90": "ninety"
+            "30": "thirty", "40": "forty", "50": "fifty", "60": "sixty", "70": "seventy", "80": "eighty", "90": "ninety",
+            "100": "hundred"
           };
 
           const normalizeText = (text) => {
@@ -1411,4 +1729,3 @@
     </script>
 </body>
 </html>
-
